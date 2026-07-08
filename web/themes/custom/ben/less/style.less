@@ -1,0 +1,478 @@
+// Bootstrap Framework.
+@import 'bootstrap';
+
+// Base-theme overrides.
+@import 'overrides';
+
+p {
+ margin: 0 0 .8em;
+}
+
+ol {
+ li {
+  margin: 0 0 .8em;
+ }
+}
+
+body {
+ background: #fff;
+
+ font-size: 16px;
+
+ &.navbar-is-fixed-top {
+  margin-top: 115px;
+
+   @media (min-width: @screen-sm-min) and (max-width: @screen-md-min) {
+    margin-top: 165px;
+   }
+ }
+}
+
+.navbar-default {
+ border: none;
+ background: rgba(255, 255, 255, 0.8);
+
+ #navbar-collapse {
+  //clear: left;
+
+  nav > ul.navbar-nav {
+   float: right;
+  }
+ }
+}
+
+.region-content, .region-sidebar-second {
+ ul li {
+  margin: .4em 0;
+ }
+}
+
+.website {
+ .field--name-field-image {
+  .make-md-column(6);
+ }
+
+ #website-details {
+  .make-md-column(6);
+ }
+
+ .field {
+  margin: .4em 0 1em;
+ }
+}
+
+.page-node-type-databases {
+ .field--name-field-image {
+  .make-md-column(6);
+ }
+
+ .database-content {
+  .make-md-column(6);
+ }
+
+ .field {
+  margin: .4em 0 1em;
+ }
+}
+
+#block-views-block-website-design-block-2 {
+ .views-row {
+  float: left;
+  width: 300px;
+  margin: 0 48px 32px 0;
+  text-align: center;
+
+  &:hover {
+   background: #ddd;
+  }
+
+  .views-field-nothing {
+    overflow: hidden;
+    margin-bottom: 38px;
+
+
+   .field-content {
+    height: 300px;
+    display: block;
+
+     img {
+       width: 300px;
+     }
+
+    span {
+     height: 100%;
+     vertical-align: middle;
+     display: inline-block;
+     width: 2px;
+    }
+
+    a {
+     display: inline-block;
+     vertical-align: middle;
+     box-sizing: border-box;
+     padding: 5px;
+    }
+   }
+  }
+ }
+}
+
+.client-list {
+ .views-row {
+  float: left;
+  width: 210px;
+  margin: 0 15px 15px 0;
+  text-align: center;
+
+  &:hover {
+   background: #eee;
+  }
+
+  .views-field-field-logo {
+   .field-content {
+    height: 200px;
+    width: 100%;
+    display: block;
+
+    span {
+     height: 100%;
+     vertical-align: middle;
+     display: inline-block;
+     width: 2px;
+    }
+
+    a {
+     display: inline-block;
+     vertical-align: middle;
+     box-sizing: border-box;
+     padding: 5px;
+     width: 195px;
+     text-align: center;
+
+     img {
+      //max-width: 90%;
+      //height: auto;
+      display: inline;
+     }
+    }
+   }
+  }
+ }
+}
+
+#block-views-block-website-design-block-1 {
+ #block-views-block-website-design-block-2;
+
+
+ .make-md-column(7);
+ .make-md-column-pull(5);
+
+  .views-row {
+    float: left;
+    width: 240px;
+    margin: 0 18px 18px 0;
+    text-align: center;
+
+    &:hover {
+      background: #ddd;
+    }
+
+    .views-field-nothing {
+      overflow: hidden;
+      margin-bottom: 28px;
+
+
+      .field-content {
+        height: 240px;
+        display: block;
+
+        img {
+          width: 240px;
+        }
+      }
+    }
+  }
+
+  .views-exposed-form {
+    legend {
+     margin: 0 0 12px;
+     padding: 0;
+     border: none;
+    }
+
+    .form-radios {
+      .form-item {
+        display: inline-block;
+        margin: .1em .2em;
+      }
+    }
+
+  input {
+   margin: 0 5px 0 14px;
+  }
+
+  div.form-actions {
+   //display: none;
+  }
+ }
+
+}
+
+.page-node-18 {
+ .region-content > article {
+  .make-md-column(5);
+  .make-md-column-push(7);
+ }
+}
+
+#block-views-database-design {
+ .views-field-field-date {
+  color: #666;
+  font-style: italic;
+ }
+}
+
+.author {
+ font-style: italic;
+ margin: 0 0 .6em;
+ color: #555;
+ font-size: .9em;
+}
+
+.field--name-field-tags {
+ margin: .8em 0;
+
+ * {
+  display: inline-block;
+ }
+}
+
+.path-blog {
+ article.teaser {
+  border-bottom: 1px solid #eee;
+ }
+}
+
+.views-field-created {
+ font-style: italic;
+ color: #555;
+ font-size: .9em;
+}
+
+#block-views-block-blog {
+ .make-md-column(5);
+ .well;
+ .views-row {
+  margin: 0 0 .5em;
+ }
+
+ h2 {
+  margin: 0 0 .3em;
+  font-size: 1.8em;
+ }
+}
+
+#block-footercontactdetails {
+ .make-md-column(6);
+ .make-md-column-offset(1);
+ text-align: right;
+}
+
+.tag-list {
+ .views-row {
+  clear: both;
+  margin: 0 0 8px;
+  padding: 0 0 25px;
+  //border-bottom: 1px solid #ddd;
+  .clearfix;
+
+  h3 {
+   margin: 0 0 .6em;
+  }
+
+  .views-field-view-node {
+   font-size: .9em;
+   margin: .6em 0;
+  }
+
+  .views-field-field-image {
+   margin: 0 20px 12px 0;
+   float: left;
+  }
+ }
+}
+
+.path-taxonomy {
+ .field--name-field-logo {
+  margin: 5px 0 50px;
+ }
+}
+
+.page-node-21 {
+ article {
+  ul {
+   padding: 0;
+   margin: 0;
+
+   li {
+    list-style: none;
+    margin: .5em 12px .5em 0;
+    display: inline-block;
+
+    span {
+     padding: 1em 1.5em;
+     background: lightblue;
+     display: inline-block;
+     border-radius: 6px;
+
+     &:hover {
+      background: lighten(lightblue, 10%);
+     }
+    }
+
+    a:hover {
+     text-decoration: none;
+    }
+   }
+  }
+ }
+}
+
+ul.pager-for-content-type {
+ clear: both;
+ margin: 25px 0;
+ padding: 0;
+ clear-after: both;
+ display: block;
+ .clearfix;
+
+ li {
+  margin: 0;
+  padding: 5px 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  list-style: none;
+  background: #f3f3f3;
+
+  &:hover {
+   background: #ddd;
+  }
+
+  a:hover {
+   text-decoration: none;
+  }
+
+  &.pager-next {
+   float: right;
+  }
+
+  &.pager-previous {
+   float: left;
+  }
+ }
+}
+
+ul.links.inline {
+ clear: both;
+ margin: 18px 0;
+ display: block;
+}
+
+.form-required:after {
+ background-position: 5px 5px;
+ height: 20px;
+ width: 15px;
+ background-repeat: no-repeat;
+}
+
+.page-node-type-article .field--name-field-image {
+ margin: 0 0 25px;
+}
+
+form {
+ .description {
+  font-size:.9em;
+ }
+
+ button[type=submit] {
+  margin: 18px 15px 18px 0;
+  font-size: 1.1em;
+ }
+}
+
+.well.tips {
+ font-size: .9em;
+ @media @tablet {
+  float: right;
+  margin: 0 0 15px 40px;
+  width: 50%;
+ }
+}
+
+.page-node-type-page {
+ .field--type-image {
+  float: right;
+  margin: 0 0 25px 45px;
+ }
+}
+
+.nav-tabs {
+ margin-bottom: 20px;
+}
+
+.client-projects {
+  .view-content {
+    .views-row {
+      //display: flex;
+      //flex-direction: row;
+      padding: 3rem 0 3rem;
+      clear: both;
+      overflow: hidden;
+      border-bottom: #ccc solid 1px;
+
+      h2 {
+        margin: 1em 0;
+        font-size: 1.4em;
+      }
+
+      @media (min-width: 650px) {
+        h2 {
+
+          margin: 0 0 1rem;
+        }
+      }
+
+      .views-field-body {
+        div[class^="readmore"] {
+          span {
+            display: block;
+            margin: .5em 0 0;
+          }
+
+          a {
+            font-size: .9em;
+            display: inline-block;
+            background: @link-color;
+            color: #fff;
+            padding: 7px 10px;
+          }
+        }
+      }
+
+      .views-field-nothing {
+        //order: -1;
+        @media (min-width: 650px) {
+          float: left;
+          max-width: 300px;
+          margin: 0 25px 0 0;
+        }
+
+
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+}

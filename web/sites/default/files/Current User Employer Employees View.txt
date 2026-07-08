@@ -1,0 +1,116 @@
+$view = new view();
+$view->name = 'organisation';
+$view->description = '';
+$view->tag = 'default';
+$view->base_table = 'users';
+$view->human_name = 'Employees of Currently Logged in User\'s Organisation';
+$view->core = 7;
+$view->api_version = '3.0';
+$view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+/* Display: Master */
+$handler = $view->new_display('default', 'Master', 'default');
+$handler->display->display_options['title'] = 'Employees of Currently Logged in User\'s Organisation';
+$handler->display->display_options['use_more_always'] = FALSE;
+$handler->display->display_options['access']['type'] = 'perm';
+$handler->display->display_options['access']['perm'] = 'access user profiles';
+$handler->display->display_options['cache']['type'] = 'none';
+$handler->display->display_options['query']['type'] = 'views_query';
+$handler->display->display_options['exposed_form']['type'] = 'basic';
+$handler->display->display_options['pager']['type'] = 'full';
+$handler->display->display_options['pager']['options']['items_per_page'] = '20';
+$handler->display->display_options['style_plugin'] = 'default';
+$handler->display->display_options['row_plugin'] = 'fields';
+/* Relationship: CiviCRM Contacts: Drupal ID */
+$handler->display->display_options['relationships']['drupal_id']['id'] = 'drupal_id';
+$handler->display->display_options['relationships']['drupal_id']['table'] = 'civicrm_contact';
+$handler->display->display_options['relationships']['drupal_id']['field'] = 'drupal_id';
+$handler->display->display_options['relationships']['drupal_id']['label'] = 'CiviCRM Contact';
+$handler->display->display_options['relationships']['drupal_id']['required'] = TRUE;
+/* Relationship: CiviCRM Contacts: CiviCRM Relationship (starting from contact A) */
+$handler->display->display_options['relationships']['relationship_id_a']['id'] = 'relationship_id_a';
+$handler->display->display_options['relationships']['relationship_id_a']['table'] = 'civicrm_contact';
+$handler->display->display_options['relationships']['relationship_id_a']['field'] = 'relationship_id_a';
+$handler->display->display_options['relationships']['relationship_id_a']['relationship'] = 'drupal_id';
+$handler->display->display_options['relationships']['relationship_id_a']['required'] = TRUE;
+$handler->display->display_options['relationships']['relationship_id_a']['relationship_type'] = array(
+  5 => '5',
+);
+/* Relationship: CiviCRM Relationships: Contact ID B */
+$handler->display->display_options['relationships']['contact_id_b_']['id'] = 'contact_id_b_';
+$handler->display->display_options['relationships']['contact_id_b_']['table'] = 'civicrm_relationship';
+$handler->display->display_options['relationships']['contact_id_b_']['field'] = 'contact_id_b_';
+$handler->display->display_options['relationships']['contact_id_b_']['relationship'] = 'relationship_id_a';
+$handler->display->display_options['relationships']['contact_id_b_']['required'] = TRUE;
+/* Relationship: CiviCRM Contacts: CiviCRM Relationship (starting from Contact B) */
+$handler->display->display_options['relationships']['relationship_id_b']['id'] = 'relationship_id_b';
+$handler->display->display_options['relationships']['relationship_id_b']['table'] = 'civicrm_contact';
+$handler->display->display_options['relationships']['relationship_id_b']['field'] = 'relationship_id_b';
+$handler->display->display_options['relationships']['relationship_id_b']['relationship'] = 'contact_id_b_';
+$handler->display->display_options['relationships']['relationship_id_b']['required'] = TRUE;
+$handler->display->display_options['relationships']['relationship_id_b']['relationship_type'] = array(
+  5 => '5',
+);
+/* Relationship: CiviCRM Relationships: Contact ID A */
+$handler->display->display_options['relationships']['contact_id_a_']['id'] = 'contact_id_a_';
+$handler->display->display_options['relationships']['contact_id_a_']['table'] = 'civicrm_relationship';
+$handler->display->display_options['relationships']['contact_id_a_']['field'] = 'contact_id_a_';
+$handler->display->display_options['relationships']['contact_id_a_']['relationship'] = 'relationship_id_b';
+$handler->display->display_options['relationships']['contact_id_a_']['label'] = 'CiviCRM Contact D';
+/* Field: User: Name */
+$handler->display->display_options['fields']['name']['id'] = 'name';
+$handler->display->display_options['fields']['name']['table'] = 'users';
+$handler->display->display_options['fields']['name']['field'] = 'name';
+$handler->display->display_options['fields']['name']['label'] = '';
+$handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+$handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+/* Field: CiviCRM Contacts: First Name */
+$handler->display->display_options['fields']['first_name']['id'] = 'first_name';
+$handler->display->display_options['fields']['first_name']['table'] = 'civicrm_contact';
+$handler->display->display_options['fields']['first_name']['field'] = 'first_name';
+$handler->display->display_options['fields']['first_name']['relationship'] = 'drupal_id';
+$handler->display->display_options['fields']['first_name']['label'] = 'First Name of Currently Logged in User';
+$handler->display->display_options['fields']['first_name']['link_to_civicrm_contact'] = 0;
+/* Field: CiviCRM Contacts: Last Name */
+$handler->display->display_options['fields']['last_name']['id'] = 'last_name';
+$handler->display->display_options['fields']['last_name']['table'] = 'civicrm_contact';
+$handler->display->display_options['fields']['last_name']['field'] = 'last_name';
+$handler->display->display_options['fields']['last_name']['relationship'] = 'drupal_id';
+$handler->display->display_options['fields']['last_name']['label'] = 'Last Name of Currently Logged in User';
+$handler->display->display_options['fields']['last_name']['link_to_civicrm_contact'] = 0;
+/* Field: CiviCRM Contacts: Contact ID */
+$handler->display->display_options['fields']['id']['id'] = 'id';
+$handler->display->display_options['fields']['id']['table'] = 'civicrm_contact';
+$handler->display->display_options['fields']['id']['field'] = 'id';
+$handler->display->display_options['fields']['id']['relationship'] = 'drupal_id';
+$handler->display->display_options['fields']['id']['label'] = 'Contact ID of Currently Logged in User';
+$handler->display->display_options['fields']['id']['separator'] = '';
+/* Field: CiviCRM Contacts: Organization Name */
+$handler->display->display_options['fields']['current_employer']['id'] = 'current_employer';
+$handler->display->display_options['fields']['current_employer']['table'] = 'civicrm_contact';
+$handler->display->display_options['fields']['current_employer']['field'] = 'current_employer';
+$handler->display->display_options['fields']['current_employer']['relationship'] = 'contact_id_b_';
+$handler->display->display_options['fields']['current_employer']['label'] = 'Organization Name (Employer of Currently Logged in User)';
+/* Field: CiviCRM Contacts: First Name */
+$handler->display->display_options['fields']['first_name_1']['id'] = 'first_name_1';
+$handler->display->display_options['fields']['first_name_1']['table'] = 'civicrm_contact';
+$handler->display->display_options['fields']['first_name_1']['field'] = 'first_name';
+$handler->display->display_options['fields']['first_name_1']['relationship'] = 'contact_id_a_';
+$handler->display->display_options['fields']['first_name_1']['label'] = 'First Name of Organisations Employees';
+$handler->display->display_options['fields']['first_name_1']['link_to_civicrm_contact'] = 0;
+/* Field: CiviCRM Contacts: Last Name */
+$handler->display->display_options['fields']['last_name_1']['id'] = 'last_name_1';
+$handler->display->display_options['fields']['last_name_1']['table'] = 'civicrm_contact';
+$handler->display->display_options['fields']['last_name_1']['field'] = 'last_name';
+$handler->display->display_options['fields']['last_name_1']['relationship'] = 'contact_id_a_';
+$handler->display->display_options['fields']['last_name_1']['label'] = 'Last Name of Organisations Employees';
+$handler->display->display_options['fields']['last_name_1']['link_to_civicrm_contact'] = 0;
+/* Filter criterion: User: Current */
+$handler->display->display_options['filters']['uid_current']['id'] = 'uid_current';
+$handler->display->display_options['filters']['uid_current']['table'] = 'users';
+$handler->display->display_options['filters']['uid_current']['field'] = 'uid_current';
+$handler->display->display_options['filters']['uid_current']['value'] = '1';
+
+/* Display: Page */
+$handler = $view->new_display('page', 'Page', 'page');
+$handler->display->display_options['path'] = 'organisation';

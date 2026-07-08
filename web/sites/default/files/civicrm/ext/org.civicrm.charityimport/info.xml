@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<extension key="org.civicrm.charityimport" type="module" name="Charity Import">
+  <file>org.civicrm.charityimport</file>
+  <name>charities</name>
+  <version>1.0</version>
+  <description>Imports organization contacts from a separate database</description>
+  <maintainer>
+    <author>benm</author>
+    <email>ben@benmango.co.uk</email>
+  </maintainer>
+</extension>

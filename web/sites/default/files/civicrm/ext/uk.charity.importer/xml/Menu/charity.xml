@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<menu>
+    <item>
+        <path>civicrm/charity/import</path>
+        <page_callback>CRM_Charityimporter_Page_Import</page_callback>
+        <title>Import UK Charities</title>
+        <access_arguments>administer CiviCRM</access_arguments>
+        <page_type>1</page_type>
+        <is_ssl>false</is_ssl>
+        <weight>0</weight>
+    </item>
+</menu>

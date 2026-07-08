@@ -1,0 +1,505 @@
+2025-08-09 10:24:37+0100  [debug] DB Error: unknown error SET @@time_zone = "Europe/Berlin" [nativecode=1298 ** Unknown or incorrect time zone: 'Europe/Berlin']
+
+#0 /home/benmang1/public_html/drupal-project/vendor/pear/db/DB.php(986): PEAR_Error->__construct("DB Error: unknown error", -1, 16, (Array:2), "SET @@time_zone = \"Europe/Berlin\" [nativecode=1298 ** Unknown or incorrect ...")
+#1 /home/benmang1/public_html/drupal-project/vendor/pear/pear-core-minimal/src/PEAR.php(577): DB_Error->__construct(-1, 16, (Array:2), "SET @@time_zone = \"Europe/Berlin\" [nativecode=1298 ** Unknown or incorrect ...")
+#2 /home/benmang1/public_html/drupal-project/vendor/pear/pear-core-minimal/src/PEAR.php(225): PEAR::_raiseError(Object(DB_mysqli), NULL, -1, 16, (Array:2), "SET @@time_zone = \"Europe/Berlin\" [nativecode=1298 ** Unknown or incorrect ...", "DB_Error", TRUE)
+#3 /home/benmang1/public_html/drupal-project/vendor/pear/db/DB/common.php(1935): PEAR->__call("raiseError", (Array:7))
+#4 /home/benmang1/public_html/drupal-project/vendor/pear/db/DB/mysqli.php(962): DB_common->raiseError(-1, NULL, NULL, "SET @@time_zone = \"Europe/Berlin\" [nativecode=1298 ** Unknown or incorrect ...", "1298 ** Unknown or incorrect time zone: 'Europe/Berlin'")
+#5 /home/benmang1/public_html/drupal-project/vendor/pear/db/DB/mysqli.php(411): DB_mysqli->mysqliRaiseError()
+#6 /home/benmang1/public_html/drupal-project/vendor/pear/db/DB/common.php(1225): DB_mysqli->simpleQuery("SET @@time_zone = \"Europe/Berlin\"")
+#7 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-packages/DB/DataObject.php(2696): DB_common->query("SET @@time_zone = \"Europe/Berlin\"")
+#8 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-packages/DB/DataObject.php(1829): DB_DataObject->_query("SET @@time_zone = \"Europe/Berlin\"")
+#9 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/DAO.php(598): DB_DataObject->query("SET @@time_zone = \"Europe/Berlin\"")
+#10 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/DAO.php(1931): CRM_Core_DAO->query("SET @@time_zone = \"Europe/Berlin\"", TRUE)
+#11 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Utils/Check/Component/Timestamps.php(39): CRM_Core_DAO::singleValueQuery("SET @@time_zone = \"Europe/Berlin\"")
+#12 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Utils/Check/Component.php(76): CRM_Utils_Check_Component_Timestamps->checkTimezoneAPIs(FALSE)
+#13 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Utils/Check.php(215): CRM_Utils_Check_Component->checkAll((Array:0), FALSE)
+#14 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Utils/Check.php(185): CRM_Utils_Check::checkStatus()
+#15 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/api/v3/System.php(138): CRM_Utils_Check::checkAll()
+#16 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/Civi/API/Provider/MagicFunctionProvider.php(89): civicrm_api3_system_check((Array:4))
+#17 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/Civi/API/Kernel.php(153): Civi\API\Provider\MagicFunctionProvider->invoke((Array:8))
+#18 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/Civi/API/Kernel.php(79): Civi\API\Kernel->runRequest((Array:8))
+#19 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/api/api.php(28): Civi\API\Kernel->runSafe("System", "check", (Array:4))
+#20 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Utils/REST.php(288): civicrm_api("System", "check", (Array:4))
+#21 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Utils/REST.php(529): CRM_Utils_REST::process((Array:3), (Array:4))
+#22 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php(239): CRM_Utils_REST::ajax()
+#23 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php(73): CRM_Core_Invoke::runItem((Array:16))
+#24 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php(38): CRM_Core_Invoke::_invoke((Array:3))
+#25 /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Civicrm.php(87): CRM_Core_Invoke::invoke((Array:3))
+#26 /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Controller/CivicrmController.php(83): Drupal\civicrm\Civicrm->invoke((Array:3))
+#27 [internal function](): Drupal\civicrm\Controller\CivicrmController->main((Array:3), "")
+#28 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(123): call_user_func_array((Array:2), (Array:2))
+#29 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/Render/Renderer.php(637): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#30 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(121): Drupal\Core\Render\Renderer->executeInRenderContext(Object(Drupal\Core\Render\RenderContext), Object(Closure))
+#31 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(97): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->wrapControllerExecutionInRenderContext((Array:2), (Array:2))
+#32 /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php(181): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#33 /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php(76): Symfony\Component\HttpKernel\HttpKernel->handleRaw(Object(Symfony\Component\HttpFoundation\Request), 1)
+#34 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/Session.php(53): Symfony\Component\HttpKernel\HttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#35 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php(48): Drupal\Core\StackMiddleware\Session->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#36 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ContentLength.php(28): Drupal\Core\StackMiddleware\KernelPreHandle->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#37 /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php(116): Drupal\Core\StackMiddleware\ContentLength->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#38 /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php(90): Drupal\page_cache\StackMiddleware\PageCache->pass(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#39 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php(48): Drupal\page_cache\StackMiddleware\PageCache->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#40 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php(51): Drupal\Core\StackMiddleware\ReverseProxyMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#41 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/AjaxPageState.php(36): Drupal\Core\StackMiddleware\NegotiationMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#42 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/StackedHttpKernel.php(51): Drupal\Core\StackMiddleware\AjaxPageState->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#43 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/DrupalKernel.php(741): Drupal\Core\StackMiddleware\StackedHttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#44 /home/benmang1/public_html/drupal-project/web/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#45 {main}
+
+
+2025-08-10 15:53:43+0100  [debug] DB Error: unknown error SET @@time_zone = "Europe/Berlin" [nativecode=1298 ** Unknown or incorrect time zone: 'Europe/Berlin']
+
+#0 /home/benmang1/public_html/drupal-project/vendor/pear/db/DB.php(986): PEAR_Error->__construct("DB Error: unknown error", -1, 16, (Array:2), "SET @@time_zone = \"Europe/Berlin\" [nativecode=1298 ** Unknown or incorrect ...")
+#1 /home/benmang1/public_html/drupal-project/vendor/pear/pear-core-minimal/src/PEAR.php(577): DB_Error->__construct(-1, 16, (Array:2), "SET @@time_zone = \"Europe/Berlin\" [nativecode=1298 ** Unknown or incorrect ...")
+#2 /home/benmang1/public_html/drupal-project/vendor/pear/pear-core-minimal/src/PEAR.php(225): PEAR::_raiseError(Object(DB_mysqli), NULL, -1, 16, (Array:2), "SET @@time_zone = \"Europe/Berlin\" [nativecode=1298 ** Unknown or incorrect ...", "DB_Error", TRUE)
+#3 /home/benmang1/public_html/drupal-project/vendor/pear/db/DB/common.php(1935): PEAR->__call("raiseError", (Array:7))
+#4 /home/benmang1/public_html/drupal-project/vendor/pear/db/DB/mysqli.php(962): DB_common->raiseError(-1, NULL, NULL, "SET @@time_zone = \"Europe/Berlin\" [nativecode=1298 ** Unknown or incorrect ...", "1298 ** Unknown or incorrect time zone: 'Europe/Berlin'")
+#5 /home/benmang1/public_html/drupal-project/vendor/pear/db/DB/mysqli.php(411): DB_mysqli->mysqliRaiseError()
+#6 /home/benmang1/public_html/drupal-project/vendor/pear/db/DB/common.php(1225): DB_mysqli->simpleQuery("SET @@time_zone = \"Europe/Berlin\"")
+#7 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-packages/DB/DataObject.php(2696): DB_common->query("SET @@time_zone = \"Europe/Berlin\"")
+#8 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-packages/DB/DataObject.php(1829): DB_DataObject->_query("SET @@time_zone = \"Europe/Berlin\"")
+#9 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/DAO.php(598): DB_DataObject->query("SET @@time_zone = \"Europe/Berlin\"")
+#10 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/DAO.php(1931): CRM_Core_DAO->query("SET @@time_zone = \"Europe/Berlin\"", TRUE)
+#11 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Utils/Check/Component/Timestamps.php(39): CRM_Core_DAO::singleValueQuery("SET @@time_zone = \"Europe/Berlin\"")
+#12 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Utils/Check/Component.php(76): CRM_Utils_Check_Component_Timestamps->checkTimezoneAPIs(FALSE)
+#13 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Utils/Check.php(215): CRM_Utils_Check_Component->checkAll((Array:0), FALSE)
+#14 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Utils/Check.php(185): CRM_Utils_Check::checkStatus()
+#15 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Utils/Check.php(93): CRM_Utils_Check::checkAll()
+#16 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Page.php(265): CRM_Utils_Check->showPeriodicAlerts()
+#17 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Page/Basic.php(177): CRM_Core_Page->run()
+#18 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Admin/Page/Extensions.php(110): CRM_Core_Page_Basic->run()
+#19 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php(280): CRM_Admin_Page_Extensions->run((Array:3), NULL)
+#20 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php(73): CRM_Core_Invoke::runItem((Array:19))
+#21 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php(38): CRM_Core_Invoke::_invoke((Array:3))
+#22 /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Civicrm.php(87): CRM_Core_Invoke::invoke((Array:3))
+#23 /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Controller/CivicrmController.php(83): Drupal\civicrm\Civicrm->invoke((Array:3))
+#24 [internal function](): Drupal\civicrm\Controller\CivicrmController->main((Array:3), "")
+#25 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(123): call_user_func_array((Array:2), (Array:2))
+#26 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/Render/Renderer.php(637): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#27 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(121): Drupal\Core\Render\Renderer->executeInRenderContext(Object(Drupal\Core\Render\RenderContext), Object(Closure))
+#28 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(97): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->wrapControllerExecutionInRenderContext((Array:2), (Array:2))
+#29 /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php(181): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#30 /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php(76): Symfony\Component\HttpKernel\HttpKernel->handleRaw(Object(Symfony\Component\HttpFoundation\Request), 1)
+#31 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/Session.php(53): Symfony\Component\HttpKernel\HttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#32 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php(48): Drupal\Core\StackMiddleware\Session->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#33 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ContentLength.php(28): Drupal\Core\StackMiddleware\KernelPreHandle->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#34 /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php(116): Drupal\Core\StackMiddleware\ContentLength->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#35 /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php(90): Drupal\page_cache\StackMiddleware\PageCache->pass(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#36 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php(48): Drupal\page_cache\StackMiddleware\PageCache->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#37 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php(51): Drupal\Core\StackMiddleware\ReverseProxyMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#38 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/AjaxPageState.php(36): Drupal\Core\StackMiddleware\NegotiationMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#39 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/StackedHttpKernel.php(51): Drupal\Core\StackMiddleware\AjaxPageState->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#40 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/DrupalKernel.php(741): Drupal\Core\StackMiddleware\StackedHttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#41 /home/benmang1/public_html/drupal-project/web/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#42 {main}
+
+
+2025-08-10 16:50:21+0100  [error] 
+$Fatal Error Details = array:3 [
+  "message" => "Unknown extension: "
+  "code" => null
+  "exception" => CRM_Extension_Exception_MissingException {#3063
+    #message: "Unknown extension: "
+    #code: 0
+    #file: "/home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Extension/Container/Collection.php"
+    #line: 150
+    #cause: null
+    -_trace: null
+    -errorData: array:1 [
+      "error_code" => 0
+    ]
+    trace: {
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Extension/Container/Collection.php:150 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Extension/Container/Collection.php:109 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Extension/Mapper.php:176 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Admin/Form/Extensions.php:87 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Form.php:756 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/QuickForm/Action/Display.php:76 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-packages/HTML/QuickForm/Controller.php:203 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-packages/HTML/QuickForm/Page.php:103 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Controller.php:356 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Page/Basic.php:364 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Page/Basic.php:170 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Admin/Page/Extensions.php:110 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php:280 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php:73 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php:38 { …}
+      /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Civicrm.php:87 {
+        Drupal\civicrm\Civicrm->invoke($args)
+        › ob_start();
+        › $content = \CRM_Core_Invoke::invoke($args);
+        › $output = ob_get_clean();
+        arguments: {
+          $args: array:3 [ …3]
+        }
+      }
+      /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Controller/CivicrmController.php:83 { …}
+      Drupal\civicrm\Controller\CivicrmController->main() {}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php:123 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/Render/Renderer.php:637 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php:121 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php:97 { …}
+      /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php:181 { …}
+      /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php:76 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/Session.php:53 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php:48 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ContentLength.php:28 { …}
+      /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php:116 { …}
+      /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php:90 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php:48 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php:51 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/AjaxPageState.php:36 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/StackedHttpKernel.php:51 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/DrupalKernel.php:741 { …}
+      /home/benmang1/public_html/drupal-project/web/index.php:19 { …}
+    }
+  }
+]
+
+
+2025-08-10 16:50:21+0100  [debug] $backTrace = #0 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Error.php(454): CRM_Core_Error::backtrace("backTrace", TRUE)
+#1 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Utils/System/Drupal8.php(1035): CRM_Core_Error::handleUnhandledException(Object(CRM_Extension_Exception_MissingException))
+#2 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php(41): CRM_Utils_System_Drupal8->handleUnhandledException(Object(CRM_Extension_Exception_MissingException))
+#3 /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Civicrm.php(87): CRM_Core_Invoke::invoke((Array:3))
+#4 /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Controller/CivicrmController.php(83): Drupal\civicrm\Civicrm->invoke((Array:3))
+#5 [internal function](): Drupal\civicrm\Controller\CivicrmController->main((Array:3), "")
+#6 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(123): call_user_func_array((Array:2), (Array:2))
+#7 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/Render/Renderer.php(637): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#8 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(121): Drupal\Core\Render\Renderer->executeInRenderContext(Object(Drupal\Core\Render\RenderContext), Object(Closure))
+#9 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(97): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->wrapControllerExecutionInRenderContext((Array:2), (Array:2))
+#10 /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php(181): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#11 /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php(76): Symfony\Component\HttpKernel\HttpKernel->handleRaw(Object(Symfony\Component\HttpFoundation\Request), 1)
+#12 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/Session.php(53): Symfony\Component\HttpKernel\HttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#13 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php(48): Drupal\Core\StackMiddleware\Session->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#14 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ContentLength.php(28): Drupal\Core\StackMiddleware\KernelPreHandle->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#15 /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php(116): Drupal\Core\StackMiddleware\ContentLength->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#16 /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php(90): Drupal\page_cache\StackMiddleware\PageCache->pass(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#17 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php(48): Drupal\page_cache\StackMiddleware\PageCache->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#18 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php(51): Drupal\Core\StackMiddleware\ReverseProxyMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#19 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/AjaxPageState.php(36): Drupal\Core\StackMiddleware\NegotiationMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#20 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/StackedHttpKernel.php(51): Drupal\Core\StackMiddleware\AjaxPageState->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#21 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/DrupalKernel.php(741): Drupal\Core\StackMiddleware\StackedHttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#22 /home/benmang1/public_html/drupal-project/web/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#23 {main}
+
+
+2025-08-10 16:51:06+0100  [info] Parse error in extension uk.charity.importer: Failed to parse info XML: File /home/benmang1/public_html/drupal-project/web/sites/default/files/civicrm/ext/uk.charity.importer/info.xml does not exist.
+
+2025-08-10 16:51:06+0100  [info] Parse error in extension uk.charity.importer: Failed to parse info XML: File /home/benmang1/public_html/drupal-project/web/sites/default/files/civicrm/ext/uk.charity.importer/info.xml does not exist.
+
+2025-08-10 16:51:06+0100  [info] Parse error in extension uk.charity.importer: Failed to parse info XML: File /home/benmang1/public_html/drupal-project/web/sites/default/files/civicrm/ext/uk.charity.importer/info.xml does not exist.
+
+2025-08-10 17:08:10+0100  [error] 
+$Fatal Error Details = array:3 [
+  "message" => "Unknown extension: "
+  "code" => null
+  "exception" => CRM_Extension_Exception_MissingException {#3063
+    #message: "Unknown extension: "
+    #code: 0
+    #file: "/home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Extension/Container/Collection.php"
+    #line: 150
+    #cause: null
+    -_trace: null
+    -errorData: array:1 [
+      "error_code" => 0
+    ]
+    trace: {
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Extension/Container/Collection.php:150 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Extension/Container/Collection.php:109 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Extension/Mapper.php:176 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Admin/Form/Extensions.php:87 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Form.php:756 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/QuickForm/Action/Display.php:76 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-packages/HTML/QuickForm/Controller.php:203 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-packages/HTML/QuickForm/Page.php:103 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Controller.php:356 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Page/Basic.php:364 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Page/Basic.php:170 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Admin/Page/Extensions.php:110 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php:280 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php:73 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php:38 { …}
+      /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Civicrm.php:87 {
+        Drupal\civicrm\Civicrm->invoke($args)
+        › ob_start();
+        › $content = \CRM_Core_Invoke::invoke($args);
+        › $output = ob_get_clean();
+        arguments: {
+          $args: array:3 [ …3]
+        }
+      }
+      /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Controller/CivicrmController.php:83 { …}
+      Drupal\civicrm\Controller\CivicrmController->main() {}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php:123 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/Render/Renderer.php:637 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php:121 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php:97 { …}
+      /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php:181 { …}
+      /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php:76 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/Session.php:53 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php:48 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ContentLength.php:28 { …}
+      /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php:116 { …}
+      /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php:90 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php:48 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php:51 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/AjaxPageState.php:36 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/StackedHttpKernel.php:51 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/DrupalKernel.php:741 { …}
+      /home/benmang1/public_html/drupal-project/web/index.php:19 { …}
+    }
+  }
+]
+
+
+2025-08-10 17:08:10+0100  [debug] $backTrace = #0 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Error.php(454): CRM_Core_Error::backtrace("backTrace", TRUE)
+#1 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Utils/System/Drupal8.php(1035): CRM_Core_Error::handleUnhandledException(Object(CRM_Extension_Exception_MissingException))
+#2 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php(41): CRM_Utils_System_Drupal8->handleUnhandledException(Object(CRM_Extension_Exception_MissingException))
+#3 /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Civicrm.php(87): CRM_Core_Invoke::invoke((Array:3))
+#4 /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Controller/CivicrmController.php(83): Drupal\civicrm\Civicrm->invoke((Array:3))
+#5 [internal function](): Drupal\civicrm\Controller\CivicrmController->main((Array:3), "")
+#6 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(123): call_user_func_array((Array:2), (Array:2))
+#7 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/Render/Renderer.php(637): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#8 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(121): Drupal\Core\Render\Renderer->executeInRenderContext(Object(Drupal\Core\Render\RenderContext), Object(Closure))
+#9 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(97): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->wrapControllerExecutionInRenderContext((Array:2), (Array:2))
+#10 /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php(181): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#11 /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php(76): Symfony\Component\HttpKernel\HttpKernel->handleRaw(Object(Symfony\Component\HttpFoundation\Request), 1)
+#12 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/Session.php(53): Symfony\Component\HttpKernel\HttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#13 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php(48): Drupal\Core\StackMiddleware\Session->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#14 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ContentLength.php(28): Drupal\Core\StackMiddleware\KernelPreHandle->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#15 /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php(116): Drupal\Core\StackMiddleware\ContentLength->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#16 /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php(90): Drupal\page_cache\StackMiddleware\PageCache->pass(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#17 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php(48): Drupal\page_cache\StackMiddleware\PageCache->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#18 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php(51): Drupal\Core\StackMiddleware\ReverseProxyMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#19 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/AjaxPageState.php(36): Drupal\Core\StackMiddleware\NegotiationMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#20 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/StackedHttpKernel.php(51): Drupal\Core\StackMiddleware\AjaxPageState->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#21 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/DrupalKernel.php(741): Drupal\Core\StackMiddleware\StackedHttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#22 /home/benmang1/public_html/drupal-project/web/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#23 {main}
+
+
+2025-08-10 17:08:13+0100  [error] 
+$Fatal Error Details = array:3 [
+  "message" => "Unknown extension: "
+  "code" => null
+  "exception" => CRM_Extension_Exception_MissingException {#3533
+    #message: "Unknown extension: "
+    #code: 0
+    #file: "/home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Extension/Container/Collection.php"
+    #line: 150
+    #cause: null
+    -_trace: null
+    -errorData: array:1 [
+      "error_code" => 0
+    ]
+    trace: {
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Extension/Container/Collection.php:150 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Extension/Container/Collection.php:109 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Extension/Mapper.php:176 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Admin/Form/Extensions.php:87 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Form.php:756 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/QuickForm/Action/Display.php:76 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-packages/HTML/QuickForm/Controller.php:203 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-packages/HTML/QuickForm/Page.php:103 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Controller.php:356 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Page/Basic.php:364 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Page/Basic.php:170 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Admin/Page/Extensions.php:110 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php:280 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php:73 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php:38 { …}
+      /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Civicrm.php:87 {
+        Drupal\civicrm\Civicrm->invoke($args)
+        › ob_start();
+        › $content = \CRM_Core_Invoke::invoke($args);
+        › $output = ob_get_clean();
+        arguments: {
+          $args: array:3 [ …3]
+        }
+      }
+      /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Controller/CivicrmController.php:83 { …}
+      Drupal\civicrm\Controller\CivicrmController->main() {}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php:123 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/Render/Renderer.php:637 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php:121 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php:97 { …}
+      /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php:181 { …}
+      /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php:76 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/Session.php:53 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php:48 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ContentLength.php:28 { …}
+      /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php:116 { …}
+      /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php:90 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php:48 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php:51 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/AjaxPageState.php:36 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/StackedHttpKernel.php:51 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/DrupalKernel.php:741 { …}
+      /home/benmang1/public_html/drupal-project/web/index.php:19 { …}
+    }
+  }
+]
+
+
+2025-08-10 17:08:13+0100  [debug] $backTrace = #0 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Error.php(454): CRM_Core_Error::backtrace("backTrace", TRUE)
+#1 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Utils/System/Drupal8.php(1035): CRM_Core_Error::handleUnhandledException(Object(CRM_Extension_Exception_MissingException))
+#2 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php(41): CRM_Utils_System_Drupal8->handleUnhandledException(Object(CRM_Extension_Exception_MissingException))
+#3 /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Civicrm.php(87): CRM_Core_Invoke::invoke((Array:3))
+#4 /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Controller/CivicrmController.php(83): Drupal\civicrm\Civicrm->invoke((Array:3))
+#5 [internal function](): Drupal\civicrm\Controller\CivicrmController->main((Array:3), "")
+#6 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(123): call_user_func_array((Array:2), (Array:2))
+#7 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/Render/Renderer.php(637): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#8 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(121): Drupal\Core\Render\Renderer->executeInRenderContext(Object(Drupal\Core\Render\RenderContext), Object(Closure))
+#9 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(97): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->wrapControllerExecutionInRenderContext((Array:2), (Array:2))
+#10 /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php(181): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#11 /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php(76): Symfony\Component\HttpKernel\HttpKernel->handleRaw(Object(Symfony\Component\HttpFoundation\Request), 1)
+#12 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/Session.php(53): Symfony\Component\HttpKernel\HttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#13 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php(48): Drupal\Core\StackMiddleware\Session->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#14 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ContentLength.php(28): Drupal\Core\StackMiddleware\KernelPreHandle->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#15 /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php(116): Drupal\Core\StackMiddleware\ContentLength->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#16 /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php(90): Drupal\page_cache\StackMiddleware\PageCache->pass(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#17 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php(48): Drupal\page_cache\StackMiddleware\PageCache->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#18 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php(51): Drupal\Core\StackMiddleware\ReverseProxyMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#19 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/AjaxPageState.php(36): Drupal\Core\StackMiddleware\NegotiationMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#20 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/StackedHttpKernel.php(51): Drupal\Core\StackMiddleware\AjaxPageState->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#21 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/DrupalKernel.php(741): Drupal\Core\StackMiddleware\StackedHttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#22 /home/benmang1/public_html/drupal-project/web/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#23 {main}
+
+
+2025-08-10 17:08:15+0100  [error] 
+$Fatal Error Details = array:3 [
+  "message" => "Unknown extension: "
+  "code" => null
+  "exception" => CRM_Extension_Exception_MissingException {#3533
+    #message: "Unknown extension: "
+    #code: 0
+    #file: "/home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Extension/Container/Collection.php"
+    #line: 150
+    #cause: null
+    -_trace: null
+    -errorData: array:1 [
+      "error_code" => 0
+    ]
+    trace: {
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Extension/Container/Collection.php:150 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Extension/Container/Collection.php:109 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Extension/Mapper.php:176 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Admin/Form/Extensions.php:87 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Form.php:756 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/QuickForm/Action/Display.php:76 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-packages/HTML/QuickForm/Controller.php:203 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-packages/HTML/QuickForm/Page.php:103 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Controller.php:356 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Page/Basic.php:364 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Page/Basic.php:170 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Admin/Page/Extensions.php:110 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php:280 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php:73 { …}
+      /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php:38 { …}
+      /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Civicrm.php:87 {
+        Drupal\civicrm\Civicrm->invoke($args)
+        › ob_start();
+        › $content = \CRM_Core_Invoke::invoke($args);
+        › $output = ob_get_clean();
+        arguments: {
+          $args: array:3 [ …3]
+        }
+      }
+      /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Controller/CivicrmController.php:83 { …}
+      Drupal\civicrm\Controller\CivicrmController->main() {}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php:123 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/Render/Renderer.php:637 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php:121 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php:97 { …}
+      /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php:181 { …}
+      /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php:76 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/Session.php:53 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php:48 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ContentLength.php:28 { …}
+      /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php:116 { …}
+      /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php:90 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php:48 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php:51 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/AjaxPageState.php:36 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/StackedHttpKernel.php:51 { …}
+      /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/DrupalKernel.php:741 { …}
+      /home/benmang1/public_html/drupal-project/web/index.php:19 { …}
+    }
+  }
+]
+
+
+2025-08-10 17:08:15+0100  [debug] $backTrace = #0 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Error.php(454): CRM_Core_Error::backtrace("backTrace", TRUE)
+#1 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Utils/System/Drupal8.php(1035): CRM_Core_Error::handleUnhandledException(Object(CRM_Extension_Exception_MissingException))
+#2 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php(41): CRM_Utils_System_Drupal8->handleUnhandledException(Object(CRM_Extension_Exception_MissingException))
+#3 /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Civicrm.php(87): CRM_Core_Invoke::invoke((Array:3))
+#4 /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Controller/CivicrmController.php(83): Drupal\civicrm\Civicrm->invoke((Array:3))
+#5 [internal function](): Drupal\civicrm\Controller\CivicrmController->main((Array:3), "")
+#6 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(123): call_user_func_array((Array:2), (Array:2))
+#7 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/Render/Renderer.php(637): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#8 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(121): Drupal\Core\Render\Renderer->executeInRenderContext(Object(Drupal\Core\Render\RenderContext), Object(Closure))
+#9 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(97): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->wrapControllerExecutionInRenderContext((Array:2), (Array:2))
+#10 /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php(181): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#11 /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php(76): Symfony\Component\HttpKernel\HttpKernel->handleRaw(Object(Symfony\Component\HttpFoundation\Request), 1)
+#12 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/Session.php(53): Symfony\Component\HttpKernel\HttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#13 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php(48): Drupal\Core\StackMiddleware\Session->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#14 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ContentLength.php(28): Drupal\Core\StackMiddleware\KernelPreHandle->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#15 /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php(116): Drupal\Core\StackMiddleware\ContentLength->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#16 /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php(90): Drupal\page_cache\StackMiddleware\PageCache->pass(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#17 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php(48): Drupal\page_cache\StackMiddleware\PageCache->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#18 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php(51): Drupal\Core\StackMiddleware\ReverseProxyMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#19 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/AjaxPageState.php(36): Drupal\Core\StackMiddleware\NegotiationMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#20 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/StackedHttpKernel.php(51): Drupal\Core\StackMiddleware\AjaxPageState->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#21 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/DrupalKernel.php(741): Drupal\Core\StackMiddleware\StackedHttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#22 /home/benmang1/public_html/drupal-project/web/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#23 {main}
+
+
+2025-08-11 18:13:34+0100  [debug] DB Error: unknown error SET @@time_zone = "Europe/Berlin" [nativecode=1298 ** Unknown or incorrect time zone: 'Europe/Berlin']
+
+#0 /home/benmang1/public_html/drupal-project/vendor/pear/db/DB.php(986): PEAR_Error->__construct("DB Error: unknown error", -1, 16, (Array:2), "SET @@time_zone = \"Europe/Berlin\" [nativecode=1298 ** Unknown or incorrect ...")
+#1 /home/benmang1/public_html/drupal-project/vendor/pear/pear-core-minimal/src/PEAR.php(577): DB_Error->__construct(-1, 16, (Array:2), "SET @@time_zone = \"Europe/Berlin\" [nativecode=1298 ** Unknown or incorrect ...")
+#2 /home/benmang1/public_html/drupal-project/vendor/pear/pear-core-minimal/src/PEAR.php(225): PEAR::_raiseError(Object(DB_mysqli), NULL, -1, 16, (Array:2), "SET @@time_zone = \"Europe/Berlin\" [nativecode=1298 ** Unknown or incorrect ...", "DB_Error", TRUE)
+#3 /home/benmang1/public_html/drupal-project/vendor/pear/db/DB/common.php(1935): PEAR->__call("raiseError", (Array:7))
+#4 /home/benmang1/public_html/drupal-project/vendor/pear/db/DB/mysqli.php(962): DB_common->raiseError(-1, NULL, NULL, "SET @@time_zone = \"Europe/Berlin\" [nativecode=1298 ** Unknown or incorrect ...", "1298 ** Unknown or incorrect time zone: 'Europe/Berlin'")
+#5 /home/benmang1/public_html/drupal-project/vendor/pear/db/DB/mysqli.php(411): DB_mysqli->mysqliRaiseError()
+#6 /home/benmang1/public_html/drupal-project/vendor/pear/db/DB/common.php(1225): DB_mysqli->simpleQuery("SET @@time_zone = \"Europe/Berlin\"")
+#7 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-packages/DB/DataObject.php(2696): DB_common->query("SET @@time_zone = \"Europe/Berlin\"")
+#8 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-packages/DB/DataObject.php(1829): DB_DataObject->_query("SET @@time_zone = \"Europe/Berlin\"")
+#9 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/DAO.php(598): DB_DataObject->query("SET @@time_zone = \"Europe/Berlin\"")
+#10 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/DAO.php(1931): CRM_Core_DAO->query("SET @@time_zone = \"Europe/Berlin\"", TRUE)
+#11 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Utils/Check/Component/Timestamps.php(39): CRM_Core_DAO::singleValueQuery("SET @@time_zone = \"Europe/Berlin\"")
+#12 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Utils/Check/Component.php(76): CRM_Utils_Check_Component_Timestamps->checkTimezoneAPIs(FALSE)
+#13 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Utils/Check.php(215): CRM_Utils_Check_Component->checkAll((Array:0), FALSE)
+#14 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Utils/Check.php(185): CRM_Utils_Check::checkStatus()
+#15 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Utils/Check.php(93): CRM_Utils_Check::checkAll()
+#16 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Page.php(265): CRM_Utils_Check->showPeriodicAlerts()
+#17 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Contact/Page/DashBoard.php(57): CRM_Core_Page->run()
+#18 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php(280): CRM_Contact_Page_DashBoard->run((Array:1), NULL)
+#19 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php(73): CRM_Core_Invoke::runItem((Array:17))
+#20 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php(38): CRM_Core_Invoke::_invoke((Array:1))
+#21 /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Civicrm.php(87): CRM_Core_Invoke::invoke((Array:1))
+#22 /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Controller/CivicrmController.php(83): Drupal\civicrm\Civicrm->invoke((Array:1))
+#23 [internal function](): Drupal\civicrm\Controller\CivicrmController->main((Array:1), "")
+#24 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(123): call_user_func_array((Array:2), (Array:2))
+#25 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/Render/Renderer.php(637): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#26 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(121): Drupal\Core\Render\Renderer->executeInRenderContext(Object(Drupal\Core\Render\RenderContext), Object(Closure))
+#27 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(97): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->wrapControllerExecutionInRenderContext((Array:2), (Array:2))
+#28 /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php(181): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#29 /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php(76): Symfony\Component\HttpKernel\HttpKernel->handleRaw(Object(Symfony\Component\HttpFoundation\Request), 1)
+#30 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/Session.php(53): Symfony\Component\HttpKernel\HttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#31 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php(48): Drupal\Core\StackMiddleware\Session->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#32 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ContentLength.php(28): Drupal\Core\StackMiddleware\KernelPreHandle->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#33 /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php(116): Drupal\Core\StackMiddleware\ContentLength->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#34 /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php(90): Drupal\page_cache\StackMiddleware\PageCache->pass(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#35 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php(48): Drupal\page_cache\StackMiddleware\PageCache->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#36 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php(51): Drupal\Core\StackMiddleware\ReverseProxyMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#37 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/AjaxPageState.php(36): Drupal\Core\StackMiddleware\NegotiationMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#38 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/StackedHttpKernel.php(51): Drupal\Core\StackMiddleware\AjaxPageState->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#39 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/DrupalKernel.php(741): Drupal\Core\StackMiddleware\StackedHttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#40 /home/benmang1/public_html/drupal-project/web/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#41 {main}
+
+

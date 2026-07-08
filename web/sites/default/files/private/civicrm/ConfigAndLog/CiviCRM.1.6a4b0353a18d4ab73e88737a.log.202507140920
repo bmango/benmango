@@ -1,0 +1,50 @@
+2025-03-12 11:17:23+0000  [debug] SECURITY: All requests that modify the database must be http POST, not GET.
+Array
+(
+    [IP] => 92.27.58.132
+    [level] => security
+    [referer] => 
+    [reason] => Destructive HTTP GET
+)
+
+
+2025-03-12 11:34:13+0000  [debug] SECURITY: All requests that modify the database must be http POST, not GET.
+Array
+(
+    [IP] => 92.27.58.132
+    [level] => security
+    [referer] => 
+    [reason] => Destructive HTTP GET
+)
+
+
+2025-03-12 11:47:40+0000  [debug] SECURITY: All requests that modify the database must be http POST, not GET.
+Array
+(
+    [IP] => 92.27.58.132
+    [level] => security
+    [referer] => 
+    [reason] => Destructive HTTP GET
+)
+
+
+2025-03-12 11:59:45+0000  [debug] SECURITY: All requests that modify the database must be http POST, not GET.
+Array
+(
+    [IP] => 92.27.58.132
+    [level] => security
+    [referer] => 
+    [reason] => Destructive HTTP GET
+)
+
+
+2025-03-12 11:59:51+0000  [debug] SECURITY: All requests that modify the database must be http POST, not GET.
+Array
+(
+    [IP] => 92.27.58.132
+    [level] => security
+    [referer] => 
+    [reason] => Destructive HTTP GET
+)
+
+
