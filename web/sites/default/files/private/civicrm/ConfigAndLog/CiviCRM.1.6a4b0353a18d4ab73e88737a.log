@@ -573,3 +573,101 @@ OFFSET 0
 
 2026-07-08 13:41:49+0100  [debug] Running task: Cleanup workspace
 
+2026-07-09 11:09:25+0100  [info] Charity import error for reg 1209400: 'Other' is not a valid option for field custom_11
+
+2026-07-09 11:09:25+0100  [info] Charity import error for reg 1209403: 'Unreachable' is not a valid option for field custom_11
+
+2026-07-09 11:09:25+0100  [info] Charity import error for reg 1209405: 'Unreachable' is not a valid option for field custom_11
+
+2026-07-09 11:09:26+0100  [info] Charity import error for reg 1209408: Value for organization_name is 129 characters  - This field has a maxlength of 128 characters.
+
+2026-07-09 11:16:30+0100  [info] Charity import error for reg 1209413: 'Unreachable' is not a valid option for field custom_11
+
+2026-07-09 11:16:31+0100  [info] Charity import error for reg 1209417: 'Other' is not a valid option for field custom_11
+
+2026-07-09 11:16:31+0100  [info] Charity import error for reg 1209422: 'Other' is not a valid option for field custom_11
+
+2026-07-09 11:16:31+0100  [info] Charity import error for reg 1209423: Value for street_address is 101 characters  - This field has a maxlength of 96 characters.
+
+2026-07-09 11:16:31+0100  [info] Charity import error for reg 1209424: 'Other' is not a valid option for field custom_11
+
+2026-07-09 11:16:31+0100  [info] Charity import error for reg 1209425: 'Unreachable' is not a valid option for field custom_11
+
+2026-07-09 11:16:32+0100  [info] Charity import error for reg 1209432: 'Other' is not a valid option for field custom_11
+
+2026-07-09 11:16:32+0100  [info] Charity import error for reg 1209437: 'Unreachable' is not a valid option for field custom_11
+
+2026-07-09 11:16:32+0100  [info] Charity import error for reg 1209439: 'Other' is not a valid option for field custom_11
+
+2026-07-09 11:16:32+0100  [info] Charity import error for reg 1209441: 'Other' is not a valid option for field custom_11
+
+2026-07-09 11:16:32+0100  [info] Charity import error for reg 1209445: 'Other' is not a valid option for field custom_11
+
+2026-07-09 11:16:33+0100  [info] Charity import error for reg 1209454: 'Other' is not a valid option for field custom_11
+
+2026-07-09 11:16:33+0100  [info] Charity import error for reg 1209459: 'Unreachable' is not a valid option for field custom_11
+
+2026-07-09 11:16:33+0100  [info] Charity import error for reg 1209461: 'Other' is not a valid option for field custom_11
+
+2026-07-09 11:16:33+0100  [info] Charity import error for reg 1209467: 'Other' is not a valid option for field custom_11
+
+2026-07-09 11:16:33+0100  [info] Charity import error for reg 1209468: 'Unreachable' is not a valid option for field custom_11
+
+2026-07-09 11:16:34+0100  [info] Charity import error for reg 1209472: 'Other' is not a valid option for field custom_11
+
+2026-07-09 11:16:34+0100  [info] Charity import error for reg 1209476: 'Unreachable' is not a valid option for field custom_11
+
+2026-07-09 11:16:35+0100  [info] Charity import error for reg 1209487: 'Other' is not a valid option for field custom_11
+
+2026-07-09 11:16:35+0100  [info] Charity import error for reg 1209491: 'Unreachable' is not a valid option for field custom_11
+
+2026-07-09 11:16:35+0100  [info] Charity import error for reg 1209494: 'Other' is not a valid option for field custom_11
+
+2026-07-09 11:16:35+0100  [info] Charity import error for reg 1209496: 'Unreachable' is not a valid option for field custom_11
+
+2026-07-09 11:16:35+0100  [info] Charity import error for reg 1209498: Value for street_address is 102 characters  - This field has a maxlength of 96 characters.
+
+2026-07-09 11:16:35+0100  [info] Charity import error for reg 1209501: 'Invalid' is not a valid option for field custom_11
+
+2026-07-09 11:16:35+0100  [info] Charity import error for reg 1209502: 'Unreachable' is not a valid option for field custom_11
+
+2026-07-09 11:16:36+0100  [info] Charity import error for reg 1209504: 'Other' is not a valid option for field custom_11
+
+2026-07-09 11:16:36+0100  [info] Charity import error for reg 1209511: 'Unreachable' is not a valid option for field custom_11
+
+2026-07-09 11:20:56+0100  [debug] $API3 Request Authorization failed = #0 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/Civi/API/Kernel.php(158): CRM_Core_Error::backtrace("API3 Request Authorization failed", TRUE)
+#1 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/Civi/API/Kernel.php(84): Civi\API\Kernel->runRequest((Array:8))
+#2 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/api/api.php(147): Civi\API\Kernel->runSafe("Case", "getcount", (Array:2))
+#3 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Case/BAO/Case.php(1871): civicrm_api3("Case", "getcount", (Array:2))
+#4 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Page/Basic.php(268): CRM_Case_BAO_Case::caseCount(NULL, FALSE)
+#5 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Page/Basic.php(427): CRM_Core_Page_Basic->action(Object(CRM_Core_BAO_OptionGroup), 10, (Array:8), (Array:4), 1)
+#6 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Page/Basic.php(235): CRM_Core_Page_Basic->getRows(NULL, 10, (Array:4))
+#7 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Admin/Page/Options.php(214): CRM_Core_Page_Basic->browse()
+#8 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Page/Basic.php(174): CRM_Admin_Page_Options->browse(NULL, NULL)
+#9 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Admin/Page/Options.php(206): CRM_Core_Page_Basic->run()
+#10 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php(246): CRM_Admin_Page_Options->run((Array:3), NULL)
+#11 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php(82): CRM_Core_Invoke::runItem((Array:19))
+#12 /home/benmang1/public_html/drupal-project/vendor/civicrm/civicrm-core/CRM/Core/Invoke.php(40): CRM_Core_Invoke::_invoke((Array:3))
+#13 /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Civicrm.php(87): CRM_Core_Invoke::invoke((Array:3))
+#14 /home/benmang1/public_html/drupal-project/web/modules/contrib/civicrm/src/Controller/CivicrmController.php(83): Drupal\civicrm\Civicrm->invoke((Array:3))
+#15 [internal function](): Drupal\civicrm\Controller\CivicrmController->main((Array:3), "")
+#16 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(123): call_user_func_array((Array:2), (Array:2))
+#17 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/Render/Renderer.php(637): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#18 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(121): Drupal\Core\Render\Renderer->executeInRenderContext(Object(Drupal\Core\Render\RenderContext), Object(Closure))
+#19 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/EventSubscriber/EarlyRenderingControllerWrapperSubscriber.php(97): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->wrapControllerExecutionInRenderContext((Array:2), (Array:2))
+#20 /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php(181): Drupal\Core\EventSubscriber\EarlyRenderingControllerWrapperSubscriber->Drupal\Core\EventSubscriber\{closure}()
+#21 /home/benmang1/public_html/drupal-project/vendor/symfony/http-kernel/HttpKernel.php(76): Symfony\Component\HttpKernel\HttpKernel->handleRaw(Object(Symfony\Component\HttpFoundation\Request), 1)
+#22 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/Session.php(53): Symfony\Component\HttpKernel\HttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#23 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php(48): Drupal\Core\StackMiddleware\Session->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#24 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ContentLength.php(28): Drupal\Core\StackMiddleware\KernelPreHandle->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#25 /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php(116): Drupal\Core\StackMiddleware\ContentLength->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#26 /home/benmang1/public_html/drupal-project/web/core/modules/page_cache/src/StackMiddleware/PageCache.php(90): Drupal\page_cache\StackMiddleware\PageCache->pass(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#27 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php(48): Drupal\page_cache\StackMiddleware\PageCache->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#28 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php(51): Drupal\Core\StackMiddleware\ReverseProxyMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#29 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/AjaxPageState.php(36): Drupal\Core\StackMiddleware\NegotiationMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#30 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/StackMiddleware/StackedHttpKernel.php(51): Drupal\Core\StackMiddleware\AjaxPageState->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#31 /home/benmang1/public_html/drupal-project/web/core/lib/Drupal/Core/DrupalKernel.php(741): Drupal\Core\StackMiddleware\StackedHttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, TRUE)
+#32 /home/benmang1/public_html/drupal-project/web/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#33 {main}
+
+
