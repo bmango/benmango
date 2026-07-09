@@ -131,13 +131,7 @@ class CRM_Charityimporter_BAO_CharityImporter {
    */
   private function createOrUpdateAddress($contactId, $charity) {
     // Combine address lines
-    $streetAddress = trim(implode("\n", array_filter([
-      $charity['address_line_one'],
-      $charity['address_line_two'],
-      $charity['address_line_three'],
-      $charity['address_line_four'],
-      $charity['address_line_five']
-    ])));
+    $streetAddress = trim($charity['address_line_one']);
 
     if (empty($streetAddress)) {
       return;
@@ -158,6 +152,22 @@ class CRM_Charityimporter_BAO_CharityImporter {
       'postal_code' => $charity['address_post_code'],
       'country_id' => 'GB' // UK
     ];
+
+    if (!empty($charity['address_line_two'])) {
+      $addressParams['supplemental_address_1'] = $charity['address_line_two'];
+    }
+
+    if (!empty($charity['address_line_three'])) {
+      $addressParams['supplemental_address_2'] = $charity['address_line_three'];
+    }
+
+    if (!empty($charity['address_line_four'])) {
+      $addressParams['supplemental_address_3'] = $charity['address_line_four'];
+    }
+
+    if (!empty($charity['address_line_five'])) {
+      $addressParams['city'] = $charity['address_line_five'];
+    }
 
     if ($existingAddress['count'] > 0) {
       $addressParams['id'] = $existingAddress['values'][0]['id'];
