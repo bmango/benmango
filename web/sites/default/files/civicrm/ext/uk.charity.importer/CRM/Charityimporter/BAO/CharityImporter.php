@@ -31,9 +31,9 @@ class CRM_Charityimporter_BAO_CharityImporter {
 
     // Get charity data
     $stmt = $this->charityDb->prepare("
-      SELECT * FROM charities 
+      SELECT * FROM charities
       WHERE reg_status <> 'RM' AND reg >= 1209300
-      ORDER BY reg 
+      ORDER BY reg
       LIMIT :limit OFFSET :offset
     ");
     $stmt->bindValue(':limit', $batchSize, PDO::PARAM_INT);
@@ -256,6 +256,8 @@ class CRM_Charityimporter_BAO_CharityImporter {
       'last_updated_register' => 'last_updated_register',
       'website_type' => 'website_type',
       'website_version' => 'website_version',
+      'civicrm' => 'civicrm',
+      'civicrm_version' => 'civicrm_version',
       'comments' => 'comments'
     ];
 
