@@ -32,7 +32,7 @@ class CRM_Charityimporter_BAO_CharityImporter {
     // Get charity data
     $stmt = $this->charityDb->prepare("
       SELECT * FROM charities
-      WHERE reg_status <> 'RM' AND reg >= 1209300
+      WHERE reg_status <> 'RM'
       ORDER BY reg
       LIMIT :limit OFFSET :offset
     ");
