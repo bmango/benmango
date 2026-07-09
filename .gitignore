@@ -27,12 +27,6 @@ Config.IDS.ini
 /web/libraries/*
 !/web/libraries/fitvids
 
-# issue with civicrm_entity module - need to record fix in git until they fix the issue
-!/web/modules/contrib/civicrm_entity
-/web/modules/contrib/civicrm_entity/*
-!web/modules/contrib/civicrm_entity/civicrm_entity.module
-!web/modules/contrib/civicrm_entity/undefined.patch
-
 # Ignore configuration files that may contain sensitive information
 /web/sites/*/*settings*.php
 /web/sites/*/*services*.yml
@@ -89,6 +83,7 @@ cron*.sh
 /web/robots.txt
 /web/update.php
 /web/web.config
+/web/sites/default/files/private/backup_migrate
 
 # Ignore vendor dependencies and scripts
 /vendor
