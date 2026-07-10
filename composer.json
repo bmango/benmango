@@ -132,6 +132,7 @@
             "locations": {
                 "web-root": "./web"
             }
-        }
+        },
+        "compile-whitelist": ["civicrm/civicrm-core", "civicrm/composer-compile-lib"]
     }
 }
