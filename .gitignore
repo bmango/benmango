@@ -15,8 +15,11 @@ web/error_log
 
 # CiviCRM folders
 /web/sites/default/files/civicrm/ConfigAndLog/*
+/web/sites/default/files/private/civicrm/ConfigAndLog/*
+web/sites/default/files/private/civicrm/ConfigAndLog/*
 Config.IDS.ini
-/web/sites/default/files/civicrm/templates_c/*
+web/sites/default/files/private/civicrm/templates_c
+/web/sites/default/files/civicrm/templates_c
 /web/sites/default/files/civicrm/persist/*
 /web/sites/default/files/civicrm/upload/*
 /web/sites/default/files/civicrm/custom/*
