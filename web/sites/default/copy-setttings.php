@@ -794,23 +794,20 @@ $databases['default']['default'] = array (
 );
 */
 
-$databases['default']['default'] = array (
-  'database' => 'benmang1_benmango8',
-  'username' => 'benmang1_benmango8',
-  'password' => '9Zq76twa667P',
-  'prefix' => '',
-  'host' => 'localhost',
-  'port' => '3306',
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'driver' => 'mysql',
-);
+  $databases['default']['default']['database'] = "benmang1_benmango8";
+  $databases['default']['default']['username'] = "benmang1_benmango8";
+  $databases['default']['default']['password'] = "9Zq76twa667P";
+  $databases['default']['default']['host'] = $host;
+  $databases['default']['default']['port'] = $port;
+  $databases['default']['default']['driver'] = $driver;
 
   $databases['civicrm']['default'] = [
     'database' => 'benmang1_benmango8_civi',
     'username' => 'benmang1_benmango8',
     'password' => '9Zq76twa667P',
-    'host' => 'localhost',
-    'driver' => 'mysql',
+    'host' => $host,
+    'driver' => $driver,
+    'port' => $port,
     'prefix' => '',
   ];
 
@@ -818,7 +815,8 @@ $databases['default']['default'] = array (
     'database' => 'benmang1_charities',
     'username' => 'benmang1_benmango8',
     'password' => '9Zq76twa667P',
-    'host' => 'localhost',
-    'driver' => 'mysql',
+    'host' => $host,
+    'driver' => $driver,
+    'port' => $port,
     'prefix' => '',
   ];

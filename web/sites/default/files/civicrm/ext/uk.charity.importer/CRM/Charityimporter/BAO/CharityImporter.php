@@ -7,12 +7,25 @@ class CRM_Charityimporter_BAO_CharityImporter {
 
   public function __construct() {
     // Initialize charity database connection
+    // 1. Fetch the credentials you defined in your settings files
+    $db_info = \Drupal\Core\Database\Database::getConnectionInfo('charities')['default'];
+    //echo '<pre>'; print_r($db_info); echo '</pre>'; die();
+    // 2. Inject those dynamic credentials into your PDO instance
+    $this->charityDb = new \PDO(
+      "mysql:host={$db_info['host']};dbname={$db_info['database']};port={$db_info['port']}",
+      $db_info['username'],
+      $db_info['password'],
+      [\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION]
+    );
+
+    /*
     $this->charityDb = new PDO(
       'mysql:host=localhost;dbname=benmang1_charities',
       'benmang1_benmango8',
       '9Zq76twa667P',
       [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
     );
+    */
 
     // Get custom field mappings
     $this->customFields = $this->getCustomFieldMappings();

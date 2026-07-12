@@ -6,7 +6,7 @@ class CRM_Charityimporter_Page_Import extends CRM_Core_Page {
     CRM_Utils_System::setTitle(ts('UK Charity Data Import'));
 
     // Handle form submission
-    if ($_POST['submit_import']) {
+    if (isset($_POST['submit_import'])) {
       $this->processImport();
     }
 
@@ -19,33 +19,39 @@ class CRM_Charityimporter_Page_Import extends CRM_Core_Page {
    */
   private function getImportStats() {
     try {
-      // Connect to charity database (adjust connection details as needed)
-      $charityDb = new PDO(
-        'mysql:host=localhost;dbname=benmang1_charities',
-        'benmang1_benmango8',
-        '9Zq76twa667P'
+      // Initialize charity database connection
+      // 1. Fetch the credentials you defined in your settings files
+      $db_info = \Drupal\Core\Database\Database::getConnectionInfo('charities')['default'];
+
+      // 2. Inject those dynamic credentials into your PDO instance
+      $this->charityDb = new \PDO(
+        "mysql:host={$db_info['host']};dbname={$db_info['database']};port={$db_info['port']}",
+        $db_info['username'],
+        $db_info['password'],
+        [\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION]
       );
 
-      $stmt = $charityDb->query("SELECT COUNT(*) as total FROM charities WHERE reg_status <> 'RM'");
-      $total = $stmt->fetch()['total'];
+      // Replaced $charityDb with $this->charityDb
+      $stmt = $this->charityDb->query("SELECT COUNT(*) as total FROM charities WHERE reg_status <> 'RM'");
+      $total = $stmt->fetch(\PDO::FETCH_ASSOC)['total'];
 
-      // Check how many are already imported
-      $stmt = $charityDb->query("
-        SELECT COUNT(*) as imported 
-        FROM charities c 
-        WHERE EXISTS (
-          SELECT 1 FROM benmang1_benmango8_civi.civicrm_contact cc 
-          WHERE cc.external_identifier = c.reg
-        )
-      ");
-      $imported = $stmt->fetch()['imported'];
+      // Replaced $charityDb with $this->charityDb
+      $stmt = $this->charityDb->query("
+      SELECT COUNT(*) as imported
+      FROM charities c
+      WHERE EXISTS (
+        SELECT 1 FROM benmang1_benmango8_civi.civicrm_contact cc
+        WHERE cc.external_identifier = c.reg
+      )
+    ");
+      $imported = $stmt->fetch(\PDO::FETCH_ASSOC)['imported'];
 
       return [
         'total' => $total,
         'imported' => $imported,
         'remaining' => $total - $imported
       ];
-    } catch (Exception $e) {
+    } catch (\Exception $e) { // Added leading backslash to target the global Exception class
       return ['error' => $e->getMessage()];
     }
   }
