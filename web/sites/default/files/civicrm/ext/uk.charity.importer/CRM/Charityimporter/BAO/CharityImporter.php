@@ -44,32 +44,40 @@ class CRM_Charityimporter_BAO_CharityImporter {
 
     // Get charity data
     $stmt = $this->charityDb->prepare("
-      SELECT * FROM charities
-      WHERE reg_status <> 'RM'
-      ORDER BY reg
-      LIMIT :limit OFFSET :offset
-    ");
-    $stmt->bindValue(':limit', $batchSize, PDO::PARAM_INT);
-    $stmt->bindValue(':offset', $startFrom, PDO::PARAM_INT);
+    SELECT * FROM charities
+    WHERE reg_status <> 'RM'
+    ORDER BY reg
+    LIMIT :limit OFFSET :offset
+  ");
+    $stmt->bindValue(':limit', $batchSize, \PDO::PARAM_INT);
+    $stmt->bindValue(':offset', $startFrom, \PDO::PARAM_INT);
     $stmt->execute();
 
-    while ($charity = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    while ($charity = $stmt->fetch(\PDO::FETCH_ASSOC)) {
       try {
         $existing = $this->importSingleCharity($charity);
         $stats['processed']++;
 
-        // Determine if created or updated based on created_date vs modified_date
+        // Determine if created or updated
         if ($existing) {
           $stats['updated']++;
         } else {
           $stats['created']++;
         }
 
-      } catch (Exception $e) {
+        // Log progress every 100 records
+        if ($stats['processed'] % 100 === 0) {
+          \Civi::log()->info("Charity Import Batch Progress: Processed {$stats['processed']} records so far. (Created: {$stats['created']}, Updated: {$stats['updated']})");
+        }
+
+      } catch (\Exception $e) { // Fixed missing backslash!
         $stats['errors']++;
         \Civi::log()->error("Charity import error for reg {$charity['reg']}: " . $e->getMessage());
       }
     }
+
+    // Final log when the batch completes
+    \Civi::log()->info("Charity Import Batch Complete: Total Processed: {$stats['processed']}, Created: {$stats['created']}, Updated: {$stats['updated']}, Errors: {$stats['errors']}.");
 
     return $stats;
   }
