@@ -7,12 +7,25 @@ class CRM_Charityimporter_BAO_CharityImporter {
 
   public function __construct() {
     // Initialize charity database connection
+    // 1. Fetch the credentials you defined in your settings files
+    $db_info = \Drupal\Core\Database\Database::getConnectionInfo('charities')['default'];
+    //echo '<pre>'; print_r($db_info); echo '</pre>'; die();
+    // 2. Inject those dynamic credentials into your PDO instance
+    $this->charityDb = new \PDO(
+      "mysql:host={$db_info['host']};dbname={$db_info['database']};port={$db_info['port']}",
+      $db_info['username'],
+      $db_info['password'],
+      [\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION]
+    );
+
+    /*
     $this->charityDb = new PDO(
       'mysql:host=localhost;dbname=benmang1_charities',
       'benmang1_benmango8',
       '9Zq76twa667P',
       [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
     );
+    */
 
     // Get custom field mappings
     $this->customFields = $this->getCustomFieldMappings();
@@ -31,41 +44,40 @@ class CRM_Charityimporter_BAO_CharityImporter {
 
     // Get charity data
     $stmt = $this->charityDb->prepare("
-      SELECT * FROM charities
-      WHERE reg_status <> 'RM'
-      ORDER BY reg
-      LIMIT :limit OFFSET :offset
-    ");
-    $stmt->bindValue(':limit', $batchSize, PDO::PARAM_INT);
-    $stmt->bindValue(':offset', $startFrom, PDO::PARAM_INT);
+    SELECT * FROM charities
+    WHERE reg_status <> 'RM'
+    ORDER BY reg
+    LIMIT :limit OFFSET :offset
+  ");
+    $stmt->bindValue(':limit', $batchSize, \PDO::PARAM_INT);
+    $stmt->bindValue(':offset', $startFrom, \PDO::PARAM_INT);
     $stmt->execute();
 
-    while ($charity = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    while ($charity = $stmt->fetch(\PDO::FETCH_ASSOC)) {
       try {
-        $this->importSingleCharity($charity);
+        $existing = $this->importSingleCharity($charity);
         $stats['processed']++;
 
-        // Check if this was a new record or update
-        $contact = civicrm_api3('Contact', 'get', [
-          'external_identifier' => $charity['reg'],
-          'sequential' => 1
-        ]);
-
-        if ($contact['count'] == 1) {
-          // Determine if created or updated based on created_date vs modified_date
-          $contactData = $contact['values'][0];
-          if ($contactData['created_date'] == $contactData['modified_date']) {
-            $stats['created']++;
-          } else {
-            $stats['updated']++;
-          }
+        // Determine if created or updated
+        if ($existing) {
+          $stats['updated']++;
+        } else {
+          $stats['created']++;
         }
 
-      } catch (Exception $e) {
+        // Log progress every 100 records
+        if ($stats['processed'] % 100 === 0) {
+          \Civi::log()->info("Charity Import Batch Progress: Processed {$stats['processed']} records so far. (Created: {$stats['created']}, Updated: {$stats['updated']})");
+        }
+
+      } catch (\Exception $e) { // Fixed missing backslash!
         $stats['errors']++;
-        CRM_Core_Error::debug_log_message("Charity import error for reg {$charity['reg']}: " . $e->getMessage());
+        \Civi::log()->error("Charity import error for reg {$charity['reg']}: " . $e->getMessage());
       }
     }
+
+    // Final log when the batch completes
+    \Civi::log()->info("Charity Import Batch Complete: Total Processed: {$stats['processed']}, Created: {$stats['created']}, Updated: {$stats['updated']}, Errors: {$stats['errors']}.");
 
     return $stats;
   }
@@ -79,10 +91,18 @@ class CRM_Charityimporter_BAO_CharityImporter {
       'external_identifier' => $charity['reg'],
       'sequential' => 1
     ]);
+    $existing = FALSE;
+
+    $existingContact = \Civi\Api4\Contact::get(TRUE)
+       ->addSelect('id')
+       ->addWhere('external_identifier', '=', $charity['reg'])
+       ->execute()
+      ->first();
 
     $contactId = NULL;
-    if ($existingContact['count'] > 0) {
-      $contactId = $existingContact['values'][0]['id'];
+    if(!empty($existingContact)) {
+      $contactId = $existingContact['id'];
+      $existing = TRUE;
     }
 
     // Prepare contact data
@@ -123,7 +143,8 @@ class CRM_Charityimporter_BAO_CharityImporter {
     // Handle custom fields
     $this->updateCustomFields($contactId, $charity);
 
-    return $contactId;
+    //return $contactId;
+    return $existing;
   }
 
   /**

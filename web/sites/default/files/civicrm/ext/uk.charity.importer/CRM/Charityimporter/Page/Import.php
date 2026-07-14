@@ -6,7 +6,7 @@ class CRM_Charityimporter_Page_Import extends CRM_Core_Page {
     CRM_Utils_System::setTitle(ts('UK Charity Data Import'));
 
     // Handle form submission
-    if ($_POST['submit_import']) {
+    if (isset($_POST['submit_import'])) {
       $this->processImport();
     }
 
@@ -19,34 +19,42 @@ class CRM_Charityimporter_Page_Import extends CRM_Core_Page {
    */
   private function getImportStats() {
     try {
-      // Connect to charity database (adjust connection details as needed)
-      $charityDb = new PDO(
-        'mysql:host=localhost;dbname=benmang1_charities',
-        'benmang1_benmango8',
-        '9Zq76twa667P'
+      // Initialize charity database connection
+      // 1. Fetch the credentials you defined in your settings files
+      $db_info = \Drupal\Core\Database\Database::getConnectionInfo('charities')['default'];
+
+      // 2. Inject those dynamic credentials into your PDO instance
+      $charityDb = new \PDO(
+        "mysql:host={$db_info['host']};dbname={$db_info['database']};port={$db_info['port']}",
+        $db_info['username'],
+        $db_info['password'],
+        [\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION]
       );
 
+      // Replaced $charityDb with $this->charityDb
       $stmt = $charityDb->query("SELECT COUNT(*) as total FROM charities WHERE reg_status <> 'RM'");
-      $total = $stmt->fetch()['total'];
+      $total = $stmt->fetch(\PDO::FETCH_ASSOC)['total'];
 
-      // Check how many are already imported
+      // Replaced $charityDb with $this->charityDb
       $stmt = $charityDb->query("
-        SELECT COUNT(*) as imported 
-        FROM charities c 
-        WHERE EXISTS (
-          SELECT 1 FROM benmang1_benmango8_civi.civicrm_contact cc 
-          WHERE cc.external_identifier = c.reg
-        )
-      ");
-      $imported = $stmt->fetch()['imported'];
+      SELECT COUNT(*) as imported
+      FROM charities c
+      WHERE EXISTS (
+        SELECT 1 FROM benmang1_benmango8_civi.civicrm_contact cc
+        WHERE cc.external_identifier = c.reg
+      )
+    ");
+      $imported = $stmt->fetch(\PDO::FETCH_ASSOC)['imported'];
 
       return [
         'total' => $total,
         'imported' => $imported,
-        'remaining' => $total - $imported
+        'remaining' => $total - $imported,
+        'error' => 0
       ];
-    } catch (Exception $e) {
-      return ['error' => $e->getMessage()];
+    }
+    catch (\Exception $e) {
+      \Civi::log()->error($e->getMessage());
     }
   }
 
@@ -71,7 +79,7 @@ class CRM_Charityimporter_Page_Import extends CRM_Core_Page {
         ts('Import Complete'),
         'success'
       );
-    } catch (Exception $e) {
+    } catch (\Exception $e) {
       CRM_Core_Session::setStatus($e->getMessage(), ts('Import Error'), 'error');
     }
   }
