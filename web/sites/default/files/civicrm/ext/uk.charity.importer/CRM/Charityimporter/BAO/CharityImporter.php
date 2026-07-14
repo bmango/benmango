@@ -55,28 +55,19 @@ class CRM_Charityimporter_BAO_CharityImporter {
 
     while ($charity = $stmt->fetch(PDO::FETCH_ASSOC)) {
       try {
-        $this->importSingleCharity($charity);
+        $existing = $this->importSingleCharity($charity);
         $stats['processed']++;
 
-        // Check if this was a new record or update
-        $contact = civicrm_api3('Contact', 'get', [
-          'external_identifier' => $charity['reg'],
-          'sequential' => 1
-        ]);
-
-        if ($contact['count'] == 1) {
-          // Determine if created or updated based on created_date vs modified_date
-          $contactData = $contact['values'][0];
-          if ($contactData['created_date'] == $contactData['modified_date']) {
-            $stats['created']++;
-          } else {
-            $stats['updated']++;
-          }
+        // Determine if created or updated based on created_date vs modified_date
+        if ($existing) {
+          $stats['updated']++;
+        } else {
+          $stats['created']++;
         }
 
       } catch (Exception $e) {
         $stats['errors']++;
-        CRM_Core_Error::debug_log_message("Charity import error for reg {$charity['reg']}: " . $e->getMessage());
+        \Civi::log()->error("Charity import error for reg {$charity['reg']}: " . $e->getMessage());
       }
     }
 
@@ -92,10 +83,18 @@ class CRM_Charityimporter_BAO_CharityImporter {
       'external_identifier' => $charity['reg'],
       'sequential' => 1
     ]);
+    $existing = FALSE;
+
+    $existingContact = \Civi\Api4\Contact::get(TRUE)
+       ->addSelect('id')
+       ->addWhere('external_identifier', '=', $charity['reg'])
+       ->execute()
+      ->first();
 
     $contactId = NULL;
-    if ($existingContact['count'] > 0) {
-      $contactId = $existingContact['values'][0]['id'];
+    if(!empty($existingContact)) {
+      $contactId = $existingContact['id'];
+      $existing = TRUE;
     }
 
     // Prepare contact data
@@ -136,7 +135,8 @@ class CRM_Charityimporter_BAO_CharityImporter {
     // Handle custom fields
     $this->updateCustomFields($contactId, $charity);
 
-    return $contactId;
+    //return $contactId;
+    return $existing;
   }
 
   /**

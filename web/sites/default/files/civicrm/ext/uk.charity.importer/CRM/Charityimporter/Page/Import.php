@@ -24,7 +24,7 @@ class CRM_Charityimporter_Page_Import extends CRM_Core_Page {
       $db_info = \Drupal\Core\Database\Database::getConnectionInfo('charities')['default'];
 
       // 2. Inject those dynamic credentials into your PDO instance
-      $this->charityDb = new \PDO(
+      $charityDb = new \PDO(
         "mysql:host={$db_info['host']};dbname={$db_info['database']};port={$db_info['port']}",
         $db_info['username'],
         $db_info['password'],
@@ -32,11 +32,11 @@ class CRM_Charityimporter_Page_Import extends CRM_Core_Page {
       );
 
       // Replaced $charityDb with $this->charityDb
-      $stmt = $this->charityDb->query("SELECT COUNT(*) as total FROM charities WHERE reg_status <> 'RM'");
+      $stmt = $charityDb->query("SELECT COUNT(*) as total FROM charities WHERE reg_status <> 'RM'");
       $total = $stmt->fetch(\PDO::FETCH_ASSOC)['total'];
 
       // Replaced $charityDb with $this->charityDb
-      $stmt = $this->charityDb->query("
+      $stmt = $charityDb->query("
       SELECT COUNT(*) as imported
       FROM charities c
       WHERE EXISTS (
@@ -49,10 +49,12 @@ class CRM_Charityimporter_Page_Import extends CRM_Core_Page {
       return [
         'total' => $total,
         'imported' => $imported,
-        'remaining' => $total - $imported
+        'remaining' => $total - $imported,
+        'error' => 0
       ];
-    } catch (\Exception $e) { // Added leading backslash to target the global Exception class
-      return ['error' => $e->getMessage()];
+    }
+    catch (\Exception $e) {
+      \Civi::log()->error($e->getMessage());
     }
   }
 
@@ -77,7 +79,7 @@ class CRM_Charityimporter_Page_Import extends CRM_Core_Page {
         ts('Import Complete'),
         'success'
       );
-    } catch (Exception $e) {
+    } catch (\Exception $e) {
       CRM_Core_Session::setStatus($e->getMessage(), ts('Import Error'), 'error');
     }
   }
