@@ -2,10 +2,14 @@
 
 # Configuration
 OFFSET=${1:-0}
-LIMIT=2000
-DRUPAL_ROOT="/home/benmang1/public_html/drupal-project/web"
+LIMIT=1000
+# DRUPAL_ROOT="/home/benmang1/public_html/drupal-project/web"
+# DRUPAL_ROOT="/home/benmang1/public_html/drupal-project/web"
+DRUPAL_ROOT="web"
 SITE_URI="https://benmango.co.uk"
+# SITE_URI = "https://benmango.ddev.site"
 SCRIPT_PATH="/home/benmang1/public_html/drupal-project/scripts/import_charities.php"
+#SCRIPT_PATH="scripts/import_charities.php"
 
 echo "🚀 Starting remote background import..."
 echo "📍 Starting at offset: $OFFSET"
